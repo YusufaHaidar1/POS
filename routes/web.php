@@ -22,3 +22,5 @@ Route::prefix('category')->group(function(){
     Route::get('/home-care', [ProductController::class, 'homecare']);
     Route::get('/baby-kid', [ProductController::class, 'baby']);
 });
+
+Route::get('/user/{id}/name/{name}', [UserController::class, 'user']);
