@@ -15,3 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::prefix('category')->group(function(){
+    Route::get('/food-beverage', [ProductController::class, 'fnb']);
+    Route::get('/beauty-health', [ProductController::class, 'beauty']);
+    Route::get('/home-care', [ProductController::class, 'homecare']);
+    Route::get('/baby-kid', [ProductController::class, 'baby']);
+});
