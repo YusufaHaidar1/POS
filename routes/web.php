@@ -28,3 +28,4 @@ Route::get('/user/{id}/name/{name}', [UserController::class, 'user']);
 Route::get('/transaction', [TransactionController::class, 'transaction']);
 
 Route::get('/level', [LevelController::class, 'index']);
+Route::get('/kategori', [KategoriController::class, 'index']);
