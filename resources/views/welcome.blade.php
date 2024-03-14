@@ -1,12 +1,27 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>POS</title>
-    </head>
-    <body class="antialiased">
-        <h2>POS (Tugas Praktikum)</h2>
-        <h3>Tampilan awal halaman</h3>
-    </body>
-</html>
+@extends('layout.app')
+
+{{-- Customize Layout Section --}}
+
+@section('subtitle', 'Welcome')
+@section('content_header_title', 'Home')
+@section('content_header_subtitle', 'Welcome')
+
+{{-- Content Body: Main Page Content --}}
+
+@section('content_body')
+    <p>Welcome to this beautiful admin panel.</p>
+@stop
+
+{{-- Push Extra CSS --}}
+
+@push('css')
+    {{-- Add here extra stylesheets --}}
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+@endpush
+
+{{-- Push Extra Scripts --}}
+
+@push('js')
+    <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+@endpush
+
