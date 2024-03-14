@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductModel extends Model
+class BarangModel extends Model
 {
     use HasFactory;
 
-    protected $table = 't_stok';
-    protected $primaryKey = 'stok_id';
+    protected $table = 'm_barang';
+    protected $primaryKey = 'barang_id';
     public $timestamps = false;
 
 }

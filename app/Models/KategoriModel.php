@@ -13,4 +13,10 @@ class KategoriModel extends Model
     protected $primaryKey = 'kategori_id';
     public $timestamps = false;
 
+    protected $fillable = ['kategori_kode', 'kategori_nama'];
+
+    public function barang(){
+        return $this->hasMany(BarangModel::class, 'barang_id', 'barang_id');
+    }
+
 }
