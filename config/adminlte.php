@@ -387,6 +387,14 @@ return [
             'icon_color' => 'cyan',
             'url' => '#',
         ],
+        ['header' => 'Category'],
+        [
+            'text' => 'Manage Kategori',
+            'url' => 'kategori',
+            'icon' => 'list-circle-sharp',
+            'label' => 4,
+            'label_color' => 'success',
+        ],
     ],
 
     /*
