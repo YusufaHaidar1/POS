@@ -71,6 +71,8 @@
             </div>
             <button type = "submit" class ="btn btn-info">Submit </button>
             </div>
+        </div>
+      </form>
 @stop
 @section('css')
 {{-- Add here extra stylesheets --}}
