@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::prefix('category')->group(function(){
     Route::get('/food-beverage', [ProductController::class, 'fnb']);
