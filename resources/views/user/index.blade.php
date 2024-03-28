@@ -1,34 +1,75 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Data User</title>
-    </head>
-    <body>
-        <h1>Data User</h1>
-        <table border="1" cellpadding="2" cellspacing="0">
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Nama</th>
-                <th>ID Level Pengguna</th>
-                {{-- <th>Jumlah Pengguna</th> --}}
-                <th>Kode Level</th>
-                <th>Nama Level</th>
-                <th>Aksi</th>
-            </tr>
-            @foreach ($data as $d)
-            <tr>
-                <td>{{$d ->user_id}}</td>
-                <td>{{$d ->username}}</td>
-                <td>{{$d ->nama}}</td>
-                <td>{{$d ->level_id}}</td>
-                <td>{{$d ->level -> level_kode}}</td>
-                <td>{{$d ->level -> level_name}}</td>
-                {{-- <td>{{$data}}</td> --}}
-                <td><a href="user/ubah/{{$d->user_id}}">Ubah</a> | <a href="user/hapus/{{$d->user_id}}">Hapus</a></td>
-            </tr>           
-            @endforeach
-        </table>
-        <a href="user/tambah">+ Tambah Data</a>
-    </body>
-</html>
+@extends('layouts.template')
+
+@section('content')
+    <div class="card card-outline card-primary">
+        <div class="card-header">
+            <h3 class="card-title">{{ $page->title }}</h3>
+            <div class="card-tools">
+                <a class="btn btn-sm btn-primary mt-1" href="{{ url('user/create')}}">Tambah</a>
+            </div>
+        </div>
+            <div class="card-body">
+                @if (@session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if (@session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
+                <table class="table table-bordered table-striped table-hover table-sm" id="table_user">
+                <thead>
+                    <tr><th>ID</th><th>Username</th><th>Nama</th><th>Level Pengguna</th><th>Aksi</th></tr>
+                </thead>
+                </table>
+            </div>
+    </div>
+@endsection
+
+@push('css')
+@endpush
+@push('js')
+
+    <script>
+    $(document).ready(function() {
+        var dataUser = $('#table_user').DataTable({
+            serverSide: true, // serverSide: true, jika ingin menggunakan server side processing
+            ajax: {
+            "url": "{{ url('user/list') }}",
+            "dataType": "json",
+            "type": "POST"
+            },
+            columns: [
+                {
+                data: "DT_RowIndex", // nomor urut dari laravel datatable addIndexColumn()
+                className: "text-center",
+                orderable: false,
+                searchable: false
+                },
+                {
+                data: "username",
+                className: "",
+                orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                },
+                {
+                data: "nama",
+                className: "",
+                orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                },
+                {
+                data: "level.level_name",
+                className: "",
+                orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
+                searchable: false // searchable: true, jika ingin kolom ini bisa dicari
+                },
+                {
+                data: "aksi",
+                className: "",
+                orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
+                searchable: false // searchable: true, jika ingin kolom ini bisa dicari
+                }
+            ]
+        });
+    });
+    </script>
+@endpush
