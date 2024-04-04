@@ -13,4 +13,6 @@ class LevelModel extends Model
     protected $primaryKey = 'level_id';
     public $timestamps = false;
 
+    protected $fillable = ['level_kode', 'level_name'];
+
 }
