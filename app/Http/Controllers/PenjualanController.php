@@ -91,7 +91,7 @@ class PenjualanController extends Controller
         ];
 
         $page = (object)[
-            'title' => 'Detail Penjualan Barang',
+            'title' => 'Detail Transaksi Penjualan Barang',
         ];
 
         $activeMenu = 'penjualan';

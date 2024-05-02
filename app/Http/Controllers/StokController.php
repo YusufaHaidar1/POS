@@ -75,7 +75,7 @@ class StokController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'stok_tanggal' => 'required | date_format:Y-m-d\TH:i:s',
+            'stok_tanggal' => 'required | date_format:Y-m-d\TH:i',
             'stok_jumlah' => 'required | integer',
             'barang_id' =>'required | integer',
             'user_id' =>'required | integer'
